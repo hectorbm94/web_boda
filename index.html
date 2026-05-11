@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boda Héctor & Magdalena</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="hero">
+  <img src="Parroquia Magdalena.jpg" alt="Iglesia" class="hero-img">
+  <div class="overlay">
+    <h1>Héctor & Magdalena</h1>
+    <p class="date">12 de diciembre de 2026</p>
+  </div>
+</header>
+
+<section class="section">
+  <h2>Detalles del evento</h2>
+  <p>
+    La ceremonia tendrá lugar el <strong>sábado 12 de diciembre de 2026 a las 12:00</strong>
+    en la Real Parroquia de Santa María Magdalena de Sevilla.
+  </p>
+
+  <p>
+    Después celebraremos juntos este gran día en la hacienda (más detalles próximamente).
+  </p>
+</section>
+
+<section class="section alt">
+  <h2>Confirmación de asistencia</h2>
+  <p>
+    Por favor, confirma tu asistencia lo antes posible a través del siguiente enlace:
+  </p>
+
+  <a href="#" class="button">Confirmar asistencia</a>
+
+  <p class="note">
+    En el formulario podrás indicar:
+    <br>• Si necesitas autobús
+    <br>• Desde dónde lo necesitas
+    <br>• Restricciones alimenticias
+  </p>
+</section>
+
+<section class="section">
+  <h2>Lo que debes saber</h2>
+
+  <div class="card">
+    <h3>🚫 Solo adultos</h3>
+    <p>
+      Esta será una boda solo para adultos. Queremos que sea un ambiente donde todos podáis relajaros y disfrutar al máximo.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>👗 Código de vestimenta</h3>
+    <p>
+      Queremos un ambiente elegante y festivo:
+      <br><br>
+      • Invitadas: evitad vestidos largos y tonos blancos, marfil o muy claros.
+      <br>
+      • Invitados: traje formal.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🏨 Alojamiento</h3>
+    <p>
+      Próximamente compartiremos recomendaciones de hoteles cercanos con condiciones especiales para invitados.
+    </p>
+  </div>
+
+</section>
+
+<section class="countdown">
+  <h2>Cuenta atrás</h2>
+  <div id="timer"></div>
+</section>
+
+<footer>
+  <p>Con mucha ilusión 💛</p>
+</footer>
+
+<script>
+  const weddingDate = new Date("December 12, 2026 12:00:00").getTime();
+
+  const timer = document.getElementById("timer");
+
+  setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+    timer.innerHTML = `
+      <div>${days}<span>días</span></div>
+      <div>${hours}<span>h</span></div>
+      <div>${minutes}<span>min</span></div>
+      <div>${seconds}<span>s</span></div>
+    `;
+  }, 1000);
+</script>
+
+</body>
+</html>
