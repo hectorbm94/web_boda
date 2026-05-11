@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><!DOCTYPE="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +6,8 @@
 <title>Héctor & Magdalena</title>
 
 <link rel="stylesheet" href="styles.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -22,10 +21,11 @@
 
 <!-- SOBRE -->
 <div class="envelope" id="envelope">
-  <div class="envelope-inner">
-    <img src="images/sello.jpg" class="seal-img">
-    <p>Haz click para abrir</p>
+  <div class="envelope-img">
+    <img src="images/sobre.jpg" alt="Sobre">
+    <img src="images/sello.jpg" class="seal" alt="Sello">
   </div>
+  <p class="open-text">Haz click para abrir</p>
 </div>
 
 <!-- CONTENIDO -->
@@ -50,16 +50,16 @@
     <a href="URL_MAPS_PARROQUIA" target="_blank">
       Real Parroquia de Santa María Magdalena
     </a>
-    <span>12:00h</span>
+    <span> · 12:00h</span>
   </div>
 
   <div class="event">
     🎉 Hacienda Los Parrales
   </div>
 
-  <!-- BOTON CALENDARIO -->
-  <a class="btn" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda%20Hector%20y%20Magdalena&dates=20261212T120000/20261212T180000&location=Sevilla">
-  Añadir al calendario
+  <a class="btn" target="_blank"
+    href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda%20Hector%20y%20Magdalena&dates=20261212T120000/20261212T180000&location=Sevilla">
+    Añadir al calendario
   </a>
 
 </section>
@@ -71,7 +71,7 @@
     Confirmar asistencia
   </a>
 
-  <p>Incluye transporte y alergias</p>
+  <p>Incluye transporte y restricciones alimentarias</p>
 </section>
 
 <section class="section reveal">
@@ -92,7 +92,7 @@
 
 <script>
 
-// APERTURA SOBRE + MUSICA
+// SOBRE + APERTURA
 const envelope = document.getElementById("envelope");
 const content = document.getElementById("content");
 const music = document.getElementById("music");
@@ -104,7 +104,7 @@ envelope.onclick = () => {
     envelope.style.display = "none";
     content.classList.remove("hidden");
     music.play();
-  }, 900);
+  }, 800);
 };
 
 // BOTON MUSICA
@@ -113,7 +113,7 @@ document.getElementById("musicBtn").onclick = () => {
   else music.pause();
 };
 
-// SCROLL ANIMATION
+// ANIMACIONES SCROLL
 const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
