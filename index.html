@@ -20,30 +20,34 @@
 
 <!-- SOBRE -->
 <div class="envelope" id="envelope">
-  <div class="envelope-img">
-    <img src="images/sello.jpg" class="seal" alt="Sello">
+  <div class="envelope-inner">
+    <img src="images/Sobre.png" alt="Sobre">
+    <img src="images/Sobre.png" class="seal" alt="Sello">
   </div>
   <p class="open-text">Haz click para abrir</p>
+</div>
+
+<!-- TARJETA (SALE DEL SOBRE) -->
+<div class="card-wrapper hidden" id="cardWrapper">
+  <header class="hero-card">
+    <p class="intro-text">Junto a nuestras familias</p>
+    <h1>Magdalena & Héctor</h1>
+    <p class="date-big">12 · DICIEMBRE · 2026</p>
+  </header>
 </div>
 
 <!-- CONTENIDO -->
 <div class="content hidden" id="content">
 
-<!-- PORTADA / TARJETA -->
-<header class="hero-card reveal">
-  <p class="intro-text">Junto a nuestras familias</p>
-  <h1>Magdalena & Héctor</h1>
-  <p class="date-big">12 · DICIEMBRE · 2026</p>
-</header>
-
-<!-- GALERÍA -->
 <section class="gallery reveal">
   <img src="images/Foto 1.jpg" alt="">
   <img src="images/Foto 2.jpg" alt="">
+</section>
+
+<section class="gallery reveal single">
   <img src="images/Parroquia.jpg" alt="">
 </section>
 
-<!-- EVENTO -->
 <section class="section reveal">
   <h2>El Evento</h2>
 
@@ -61,34 +65,34 @@
 
   <div class="event">
     <span class="icon">🎉</span>
-    Hacienda Los Parrales
+    <a href="URL_MAPS_HACIENDA" target="_blank">
+      Hacienda Los Parrales
+    </a>
   </div>
 
-  <a class="btn" target="_blank"
-     href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda%20Hector%20y%20Magdalena&dates=20261212T120000/20261212T180000&location=Sevilla">
+  <a class="btn" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda%20Hector%20y%20Magdalena&dates=20261212T120000/20261212T180000&location=Sevilla" target="_blank">
     Añadir al calendario
   </a>
 </section>
 
-<!-- CONFIRMACIÓN -->
 <section class="section alt reveal">
   <h2>Confirmación de asistencia</h2>
 
-  <a class="btn light" target="_blank" href="TU_GOOGLE_FORM">
+  <a class="btn light" href="TU_GOOGLE_FORM" target="_blank">
     Confirmar asistencia
   </a>
 
   <p class="small-text">
-    En el formulario podrás indicar transporte y restricciones alimentarias.
+    Podrás indicar transporte y restricciones alimentarias.
   </p>
 </section>
 
-<!-- NORMAS -->
 <section class="section reveal">
   <h2>Lo que debes saber</h2>
 
   <div class="card long-text">
     <h3>Código de Vestimenta</h3>
+
     <p>
       Queremos veros guapísimos, elegantes… y listos para darlo todo en la pista.<br><br>
       Así que el dress code será <strong>formal</strong>.
@@ -108,6 +112,7 @@
 
   <div class="card long-text">
     <h3>Solo adultos</h3>
+
     <p>
       Aunque adoramos a los más pequeños, hemos decidido que nuestra boda sea una
       celebración solo para adultos.
@@ -123,14 +128,8 @@
       al máximo con nosotros.
     </p>
   </div>
-
-  <div class="card">
-    <h3>Alojamiento</h3>
-    <p>Próximamente compartiremos hoteles recomendados.</p>
-  </div>
 </section>
 
-<!-- CUENTA ATRÁS -->
 <section class="countdown reveal">
   <h2>Cuenta atrás para el gran día</h2>
   <div id="timer" class="timer-box"></div>
@@ -139,8 +138,8 @@
 </div>
 
 <script>
-// APERTURA SOBRE
 const envelope = document.getElementById("envelope");
+const cardWrapper = document.getElementById("cardWrapper");
 const content = document.getElementById("content");
 const music = document.getElementById("music");
 
@@ -148,17 +147,20 @@ envelope.onclick = () => {
   envelope.classList.add("open");
   setTimeout(() => {
     envelope.style.display = "none";
-    content.classList.remove("hidden");
+    cardWrapper.classList.remove("hidden");
     music.play();
-  }, 800);
+
+    setTimeout(() => {
+      content.classList.remove("hidden");
+    }, 1200);
+  }, 700);
 };
 
-// BOTÓN MÚSICA
 document.getElementById("musicBtn").onclick = () => {
   music.paused ? music.play() : music.pause();
 };
 
-// SCROLL REVEAL
+// Scroll reveal
 document.querySelectorAll(".reveal").forEach(el => {
   window.addEventListener("scroll", () => {
     if (el.getBoundingClientRect().top < window.innerHeight - 80) {
@@ -167,7 +169,7 @@ document.querySelectorAll(".reveal").forEach(el => {
   });
 });
 
-// COUNTDOWN ELEGANTE
+// Countdown
 const weddingDate = new Date("December 12, 2026 12:00:00").getTime();
 setInterval(() => {
   const now = new Date().getTime();
