@@ -1,110 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boda Héctor & Magdalena</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Héctor & Magdalena</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="hero">
-  <img src="Parroquia Magdalena.jpg" alt="Iglesia" class="hero-img">
-  <div class="overlay">
-    <h1>Héctor & Magdalena</h1>
-    <p class="date">12 de diciembre de 2026</p>
+<!-- MÚSICA -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn">🔊</button>
+
+<!-- SOBRE -->
+<div class="envelope" id="envelope">
+  <div class="envelope-inner">
+    <img src="images/sello.png" class="seal-img">
+    <p>Haz click para abrir</p>
   </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="content hidden" id="content">
+
+<header class="hero reveal">
+  <h1>Héctor & Magdalena</h1>
+  <p>12 de diciembre de 2026</p>
 </header>
 
-<section class="section">
-  <h2>Detalles del evento</h2>
-  <p>
-    La ceremonia tendrá lugar el <strong>sábado 12 de diciembre de 2026 a las 12:00</strong>
-    en la Real Parroquia de Santa María Magdalena de Sevilla.
-  </p>
-
-  <p>
-    Después celebraremos juntos este gran día en la hacienda (más detalles próximamente).
-  </p>
+<section class="gallery reveal">
+  <img src="images/foto1.jpg">
+  <img src="images/foto2.jpg">
+  <img src="images/parroquia.jpg">
 </section>
 
-<section class="section alt">
-  <h2>Confirmación de asistencia</h2>
-  <p>
-    Por favor, confirma tu asistencia lo antes posible a través del siguiente enlace:
-  </p>
+<section class="section reveal">
+  <h2>El Evento</h2>
 
-  <a href="#" class="button">Confirmar asistencia</a>
-
-  <p class="note">
-    En el formulario podrás indicar:
-    <br>• Si necesitas autobús
-    <br>• Desde dónde lo necesitas
-    <br>• Restricciones alimenticias
-  </p>
-</section>
-
-<section class="section">
-  <h2>Lo que debes saber</h2>
-
-  <div class="card">
-    <h3>🚫 Solo adultos</h3>
-    <p>
-      Esta será una boda solo para adultos. Queremos que sea un ambiente donde todos podáis relajaros y disfrutar al máximo.
-    </p>
+  <div class="event">
+    ⛪
+    <a href="URL_MAPS_PARROQUIA" target="_blank">
+      Real Parroquia de Santa María Magdalena
+    </a>
+    <span>12:00h</span>
   </div>
 
-  <div class="card">
-    <h3>👗 Código de vestimenta</h3>
-    <p>
-      Queremos un ambiente elegante y festivo:
-      <br><br>
-      • Invitadas: evitad vestidos largos y tonos blancos, marfil o muy claros.
-      <br>
-      • Invitados: traje formal.
-    </p>
+  <div class="event">
+    🎉 Hacienda Los Parrales
   </div>
 
-  <div class="card">
-    <h3>🏨 Alojamiento</h3>
-    <p>
-      Próximamente compartiremos recomendaciones de hoteles cercanos con condiciones especiales para invitados.
-    </p>
-  </div>
+  <!-- BOTON CALENDARIO -->
+  <a class="btn" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda%20Hector%20y%20Magdalena&dates=20261212T120000/20261212T180000&location=Sevilla">
+  Añadir al calendario
+  </a>
 
 </section>
 
-<section class="countdown">
-  <h2>Cuenta atrás</h2>
-  <div id="timer"></div>
+<section class="section alt reveal">
+  <h2>Confirmación</h2>
+
+  <a class="btn" href="TU_GOOGLE_FORM" target="_blank">
+    Confirmar asistencia
+  </a>
+
+  <p>Incluye transporte y alergias</p>
 </section>
 
-<footer>
-  <p>Con mucha ilusión 💛</p>
-</footer>
+<section class="section reveal">
+<h2>Lo que debes saber</h2>
+
+<div class="card">🚫 Solo adultos</div>
+<div class="card">👗 Dress code formal</div>
+<div class="card">🏨 Hoteles próximamente</div>
+
+</section>
+
+<section class="countdown reveal">
+<h2>Cuenta atrás</h2>
+<div id="timer"></div>
+</section>
+
+</div>
 
 <script>
-  const weddingDate = new Date("December 12, 2026 12:00:00").getTime();
 
-  const timer = document.getElementById("timer");
+// APERTURA SOBRE + MUSICA
+const envelope = document.getElementById("envelope");
+const content = document.getElementById("content");
+const music = document.getElementById("music");
 
-  setInterval(function() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+envelope.onclick = () => {
+  envelope.classList.add("open");
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((distance % (1000*60)) / 1000);
+  setTimeout(() => {
+    envelope.style.display = "none";
+    content.classList.remove("hidden");
+    music.play();
+  }, 900);
+};
 
-    timer.innerHTML = `
-      <div>${days}<span>días</span></div>
-      <div>${hours}<span>h</span></div>
-      <div>${minutes}<span>min</span></div>
-      <div>${seconds}<span>s</span></div>
-    `;
-  }, 1000);
+// BOTON MUSICA
+document.getElementById("musicBtn").onclick = () => {
+  if (music.paused) music.play();
+  else music.pause();
+};
+
+// SCROLL ANIMATION
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("visible");
+    }
+  });
+});
+
+// COUNTDOWN
+const weddingDate = new Date("December 12, 2026 12:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff % (1000*60*60))/(1000*60));
+  const s = Math.floor((diff % (1000*60))/1000);
+
+  document.getElementById("timer").innerHTML =
+   `${d} días · ${h}h · ${m}m · ${s}s`;
+
+}, 1000);
+
 </script>
 
 </body>
