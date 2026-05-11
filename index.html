@@ -1,4 +1,5 @@
-<!DOCTYPE html><!DOCTYPE="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,8 +7,7 @@
 <title>Héctor & Magdalena</title>
 
 <link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Libre+Baskerville:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,14 +16,13 @@
 <audio id="music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
-
 <button id="musicBtn">🔊</button>
 
 <!-- SOBRE -->
 <div class="envelope" id="envelope">
   <div class="envelope-img">
     <img src="images/sobre.jpg" alt="Sobre">
-    <img src="images/sello.jpg" class="seal" alt="Sello">
+    <img src="images/sello.png" class="seal" alt="Sello">
   </div>
   <p class="open-text">Haz click para abrir</p>
 </div>
@@ -31,75 +30,123 @@
 <!-- CONTENIDO -->
 <div class="content hidden" id="content">
 
-<header class="hero reveal">
-  <h1>Héctor & Magdalena</h1>
-  <p>12 de diciembre de 2026</p>
+<!-- PORTADA / TARJETA -->
+<header class="hero-card reveal">
+  <p class="intro-text">Junto a nuestras familias</p>
+  <h1>Magdalena & Héctor</h1>
+  <p class="date-big">12 · DICIEMBRE · 2026</p>
 </header>
 
+<!-- GALERÍA -->
 <section class="gallery reveal">
-  <img src="images/foto1.jpg">
-  <img src="images/foto2.jpg">
-  <img src="images/parroquia.jpg">
+  <img src="images/foto1.jpg" alt="">
+  <img src="images/foto2.jpg" alt="">
+  <img src="images/parroquia.jpg" alt="">
 </section>
 
+<!-- EVENTO -->
 <section class="section reveal">
   <h2>El Evento</h2>
 
   <div class="event">
-    ⛪
+    <span class="icon">⛪</span>
     <a href="URL_MAPS_PARROQUIA" target="_blank">
       Real Parroquia de Santa María Magdalena
     </a>
-    <span> · 12:00h</span>
+  </div>
+
+  <div class="event highlight-time">
+    <span class="icon">🕰️</span>
+    <span class="time">12:00 h</span>
   </div>
 
   <div class="event">
-    🎉 Hacienda Los Parrales
+    <span class="icon">🎉</span>
+    Hacienda Los Parrales
   </div>
 
   <a class="btn" target="_blank"
-    href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda%20Hector%20y%20Magdalena&dates=20261212T120000/20261212T180000&location=Sevilla">
+     href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda%20Hector%20y%20Magdalena&dates=20261212T120000/20261212T180000&location=Sevilla">
     Añadir al calendario
   </a>
-
 </section>
 
+<!-- CONFIRMACIÓN -->
 <section class="section alt reveal">
-  <h2>Confirmación</h2>
+  <h2>Confirmación de asistencia</h2>
 
-  <a class="btn" href="TU_GOOGLE_FORM" target="_blank">
+  <a class="btn light" target="_blank" href="TU_GOOGLE_FORM">
     Confirmar asistencia
   </a>
 
-  <p>Incluye transporte y restricciones alimentarias</p>
+  <p class="small-text">
+    En el formulario podrás indicar transporte y restricciones alimentarias.
+  </p>
 </section>
 
+<!-- NORMAS -->
 <section class="section reveal">
-<h2>Lo que debes saber</h2>
+  <h2>Lo que debes saber</h2>
 
-<div class="card">🚫 Solo adultos</div>
-<div class="card">👗 Dress code formal</div>
-<div class="card">🏨 Hoteles próximamente</div>
+  <div class="card long-text">
+    <h3>Código de Vestimenta</h3>
+    <p>
+      Queremos veros guapísimos, elegantes… y listos para darlo todo en la pista.<br><br>
+      Así que el dress code será <strong>formal</strong>.
+    </p>
 
+    <p>
+      <strong>Para las invitadas:</strong><br>
+      Dejad los vestidos largos para la alfombra roja y evitad los tonos blancos,
+      marfil o muy claritos (reservado para la novia).
+    </p>
+
+    <p>
+      <strong>Para los invitados:</strong><br>
+      Traje formal. Y sí, el “me pongo una camisa bonita y ya” no cuenta 😉
+    </p>
+  </div>
+
+  <div class="card long-text">
+    <h3>Solo adultos</h3>
+    <p>
+      Aunque adoramos a los más pequeños, hemos decidido que nuestra boda sea una
+      celebración solo para adultos.
+    </p>
+
+    <p>
+      Sabemos que para muchas familias puede requerir un poco más de organización,
+      y os agradecemos muchísimo vuestra comprensión.
+    </p>
+
+    <p>
+      Nuestra ilusión es que todos podáis relajaros, desconectar y disfrutar la fiesta
+      al máximo con nosotros.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Alojamiento</h3>
+    <p>Próximamente compartiremos hoteles recomendados.</p>
+  </div>
 </section>
 
+<!-- CUENTA ATRÁS -->
 <section class="countdown reveal">
-<h2>Cuenta atrás</h2>
-<div id="timer"></div>
+  <h2>Cuenta atrás para el gran día</h2>
+  <div id="timer" class="timer-box"></div>
 </section>
 
 </div>
 
 <script>
-
-// SOBRE + APERTURA
+// APERTURA SOBRE
 const envelope = document.getElementById("envelope");
 const content = document.getElementById("content");
 const music = document.getElementById("music");
 
 envelope.onclick = () => {
   envelope.classList.add("open");
-
   setTimeout(() => {
     envelope.style.display = "none";
     content.classList.remove("hidden");
@@ -107,27 +154,22 @@ envelope.onclick = () => {
   }, 800);
 };
 
-// BOTON MUSICA
+// BOTÓN MÚSICA
 document.getElementById("musicBtn").onclick = () => {
-  if (music.paused) music.play();
-  else music.pause();
+  music.paused ? music.play() : music.pause();
 };
 
-// ANIMACIONES SCROLL
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+// SCROLL REVEAL
+document.querySelectorAll(".reveal").forEach(el => {
+  window.addEventListener("scroll", () => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 80) {
       el.classList.add("visible");
     }
   });
 });
 
-// COUNTDOWN
+// COUNTDOWN ELEGANTE
 const weddingDate = new Date("December 12, 2026 12:00:00").getTime();
-
 setInterval(() => {
   const now = new Date().getTime();
   const diff = weddingDate - now;
@@ -137,11 +179,13 @@ setInterval(() => {
   const m = Math.floor((diff % (1000*60*60))/(1000*60));
   const s = Math.floor((diff % (1000*60))/1000);
 
-  document.getElementById("timer").innerHTML =
-   `${d} días · ${h}h · ${m}m · ${s}s`;
-
+  document.getElementById("timer").innerHTML = `
+    <div><span>${d}</span>días</div>
+    <div><span>${h}</span>horas</div>
+    <div><span>${m}</span>min</div>
+    <div><span>${s}</span>seg</div>
+  `;
 }, 1000);
-
 </script>
 
 </body>
